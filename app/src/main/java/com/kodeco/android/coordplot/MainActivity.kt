@@ -3,9 +3,16 @@ package com.kodeco.android.coordplot
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -24,14 +31,37 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun PlotSurface() {
+    var xPercent: Float by remember { mutableStateOf(0.5f) }
+    var yPercent: Float by remember { mutableStateOf(0.5f) }
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = Color.White
     ) {
+        Column (
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
+        ) {
+            //Map(xPercent,yPercent)
+
+            createHorizontalSlider(value = xPercent,
+                changeValue = { value ->
+                    xPercent = value
+                }
+            )
+            createVerticalSlider(value = yPercent,
+                changeValue = { value ->
+                    yPercent = value
+                    //Log.i("y-tag", (yPercent * 300 - 18).toString())
+                }
+            )
+        }
         // TODO Build out the plot surface
         //  This should include a Column composable that
         //  includes a Map, and two MapSlider composables
         //  (one slider for each axis).
+
+
+
     }
 
 }
