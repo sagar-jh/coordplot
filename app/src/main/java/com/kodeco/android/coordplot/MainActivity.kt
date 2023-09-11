@@ -53,12 +53,12 @@ fun PlotSurface() {
             }
 
 
-            createHorizontalSlider(value = xPercent,
+            HorizontalSlider(value = xPercent,
                 changeValue = { value ->
                     xPercent = value
                 }
             )
-            createVerticalSlider(value = yPercent,
+            VerticalSlider(value = yPercent,
                 changeValue = { value ->
                     yPercent = value
                     //Log.i("y-tag", (yPercent * 300 - 18).toString())

@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun createVerticalSlider(modifier: Modifier=Modifier, value: Float = 0.5f, changeValue:(Float)->Unit){
+fun VerticalSlider(modifier: Modifier=Modifier, value: Float = 0.5f, changeValue:(Float)->Unit){
     Slider(
         value = value,
         valueRange = 0.01f..1f,
