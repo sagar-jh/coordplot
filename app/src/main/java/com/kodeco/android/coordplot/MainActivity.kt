@@ -3,6 +3,7 @@ package com.kodeco.android.coordplot
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -21,6 +22,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kodeco.android.coordplot.ui.theme.MyApplicationTheme
@@ -48,7 +51,10 @@ fun PlotSurface() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Box(Modifier.background(Color.Blue).size(300.dp)){
+            Box(
+                Modifier
+                    .background(Color.Blue)
+                    .size(300.dp)){
                 Map(xPercent,yPercent)
             }
 
@@ -83,13 +89,12 @@ fun PlotSurfacePreview() {
 
 @Composable
 fun Map(xPercent: Float, yPercent: Float, modifier: Modifier = Modifier) {
-    Box(
+
+    Image(painter = painterResource(id = R.drawable.star),
+        contentDescription = stringResource(R.string.star_image),
         modifier
             .size(36.dp)
-            .offset((xPercent * 300 - 18).dp, (yPercent * 300 - 18).dp)
-            .clip(shape = CircleShape)
-            .background(Color.Red)
-    )
+            .offset((xPercent * 300 - 18).dp, (yPercent * 300 - 18).dp))
 }
 
 @Preview(showBackground = true)
