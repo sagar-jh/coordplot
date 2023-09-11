@@ -8,11 +8,17 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -28,6 +34,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kodeco.android.coordplot.ui.theme.MyApplicationTheme
+import kotlin.math.roundToInt
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,7 +57,8 @@ fun PlotSurface() {
     ) {
         Column (
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier.verticalScroll(rememberScrollState())
         ) {
             Box(
                 Modifier
@@ -59,23 +67,23 @@ fun PlotSurface() {
                 Map(xPercent,yPercent)
             }
 
+            Row (Modifier.padding(16.dp)){
 
-            CustomSlider(value = xPercent,
-                changeValue = { value ->
-                    xPercent = value
-                }
-            )
-            CustomSlider(value = yPercent,
-                changeValue = { value ->
-                    yPercent = value
-                    //Log.i("y-tag", (yPercent * 300 - 18).toString())
-                }
-            )
+                CustomSlider(value = xPercent,
+                    changeValue = { value ->
+                        xPercent = value
+                    },text= stringResource(R.string.x_axis)
+                )
+            }
+            Row (Modifier.padding(16.dp)){
+
+                CustomSlider(value = yPercent,
+                    changeValue = { value ->
+                        yPercent = value
+                    },text= stringResource(R.string.y_axis)
+                )
+            }
         }
-
-
-
-
     }
 
 }
@@ -88,20 +96,3 @@ fun PlotSurfacePreview() {
     }
 }
 
-@Composable
-fun Map(xPercent: Float, yPercent: Float, modifier: Modifier = Modifier) {
-
-    Image(painter = painterResource(id = R.drawable.star),
-        contentDescription = stringResource(R.string.star_image),
-        modifier
-            .size(36.dp)
-            .offset((xPercent * 300 - 18).dp, (yPercent * 300 - 18).dp))
-}
-
-@Preview(showBackground = true)
-@Composable
-fun MapPreview() {
-    MyApplicationTheme {
-        Map(xPercent = 0.5f, yPercent = 0.5f)
-    }
-}
