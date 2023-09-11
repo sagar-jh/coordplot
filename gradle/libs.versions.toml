@@ -4,21 +4,21 @@ kotlin = "1.8.10"
 core-ktx = "1.10.1"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
-lifecycle-runtime-ktx = "2.6.1"
+lifecycle-runtime-ktx = "2.6.2"
 activity-compose = "1.7.2"
-compose-bom = "2023.08.00"
-compose-ui = "1.5.0"
-viewModelVersion = "2.6.1"
+compose-bom = "2023.09.00"
+compose-ui = "1.5.1"
+viewModelVersion = "2.6.2"
 androidx-activity = "1.7.2"
 kotlinx-coroutines = "1.7.1"
 androidx-appcompat = "1.6.1"
 compose-integration-constraintlayout = "1.0.1"
-material3 = "1.2.0-alpha02"
-fonts = "1.4.3"
-navigation="2.6.0"
+material3 = "1.2.0-alpha07"
+fonts = "1.5.1"
+navigation= "2.7.2"
 
 [libraries]
-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version = "1.12.0" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }

@@ -12,19 +12,19 @@ import androidx.compose.ui.unit.dp
 import com.kodeco.android.coordplot.ui.theme.MyApplicationTheme
 
 @Composable
-fun Map(xPercent: Float, yPercent: Float, modifier: Modifier = Modifier) {
+fun Map(xPercent: Float, yPercent: Float, height:Int, modifier: Modifier = Modifier) {
 
     Image(painter = painterResource(id = R.drawable.star),
         contentDescription = stringResource(R.string.star_image),
         modifier
             .size(36.dp)
-            .offset((xPercent * 300 - 18).dp, (yPercent * 300 - 18).dp))
+            .offset((xPercent * height - 18).dp.coerceIn(0.dp, 300.dp - 36.dp), (yPercent * height - 18).dp.coerceIn(0.dp, 300.dp - 36.dp)))
 }
 
 @Preview(showBackground = true)
 @Composable
 fun MapPreview() {
     MyApplicationTheme {
-        Map(xPercent = 0.5f, yPercent = 0.5f)
+        Map(xPercent = 0.5f, yPercent = 0.5f, height = 300)
     }
 }
