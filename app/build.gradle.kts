@@ -51,6 +51,7 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.0"
@@ -71,4 +72,15 @@ dependencies {
     implementation(libs.bundles.compose.ui)
     implementation(libs.bundles.androidx.activity)
     implementation(libs.fonts)
+    implementation(libs.com.google.android.material.material)
+    implementation(libs.androidx.appCompat)
+    implementation(libs.constraintlayout)
+    implementation(libs.navigation.fragment.ktx)
+    implementation(libs.navigation.ui.ktx)
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.moshi:moshi-kotlin:1.14.0")
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
+    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+
+
 }
